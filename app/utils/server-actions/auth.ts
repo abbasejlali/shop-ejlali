@@ -20,7 +20,6 @@ async function auth(formData: FormData) {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data?.accessToken) {
         cookies().set("accessToken", data.accessToken, {
           httpOnly: true,

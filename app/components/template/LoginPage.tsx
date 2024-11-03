@@ -2,7 +2,6 @@
 
 // server actions
 import auth from "@/app/utils/server-actions/auth";
-import Link from "next/link";
 import { useRef } from "react";
 
 function LoginPage() {

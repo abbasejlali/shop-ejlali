@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
 import LayoutPage from "./components/layout/LayoutPage";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Shop | abbas ejlali",
@@ -26,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} container max-w-7xl mx-auto py-20 antialiased`}
-      >
+      <body className={`container max-w-7xl mx-auto  antialiased`}>
         <LayoutPage>{children}</LayoutPage>
       </body>
     </html>

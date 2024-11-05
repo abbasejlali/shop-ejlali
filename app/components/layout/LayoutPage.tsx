@@ -5,7 +5,7 @@ import Link from "next/link";
 // Module
 import BtnDashboard from "../module/BtnDashboard";
 
-function LayoutPage({ children }: { children: ReactNode }) {
+async function LayoutPage({ children }: { children: ReactNode }) {
   return (
     <>
       <header className="bg-white mt-10 border-gray-200 dark:bg-gray-900">

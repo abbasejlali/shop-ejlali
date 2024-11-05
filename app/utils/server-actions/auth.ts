@@ -14,9 +14,9 @@ async function auth(formData: FormData) {
     body: JSON.stringify({
       username,
       password,
-      expiresInMins: 60,
+      expiresInMins: 60, // optional, defaults to 60
     }),
-    credentials: "include",
+    credentials: "include", // Include cookies (e.g., accessToken) in the request
   })
     .then((res) => res.json())
     .then((data) => {

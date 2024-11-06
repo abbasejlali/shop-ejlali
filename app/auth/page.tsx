@@ -8,10 +8,9 @@ import { User } from "../utils/typescript/interface/interface";
 import validationUserServer from "../utils/server-actions/validationUserServer";
 
 async function Login() {
-  const data: User = await validationUserServer();
-  if (data?.id) {
-    permanentRedirect("/");
-  }
+  const data: User | undefined = await validationUserServer();
+
+  if (data?.id) permanentRedirect("/");
 
   return <LoginPage />;
 }

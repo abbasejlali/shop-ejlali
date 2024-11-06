@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { revalidatePath } from "next/cache";
+import { Authorization } from "../functions";
 
 async function validationUserServer() {
   "use server";
@@ -14,17 +15,7 @@ async function validationUserServer() {
     cookie.get("refreshToken");
 
   if (accessToken) {
-    const data = await fetch(`${baseurl}/auth/me`, {
-      method: "GET",
-      headers: { Authorization: `Bearer ${accessToken.value}` },
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        return data;
-      })
-      .catch((err) => err);
-    return data;
+    return Authorization(accessToken);
   } else if (refreshToken) {
     await fetch(`${baseurl}/auth/refresh`, {
       method: "POST",

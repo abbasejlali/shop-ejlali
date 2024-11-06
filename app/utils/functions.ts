@@ -1,3 +1,4 @@
+"use server";
 // type script
 import {
   AuthorizationType,
@@ -30,7 +31,6 @@ const GetNewAccessToken: GetNewAccessTokenType = async (refreshToken) => {
     .then((res) => res.json())
     .then((data) => data)
     .catch((err) => err);
-
   return data;
 };
 

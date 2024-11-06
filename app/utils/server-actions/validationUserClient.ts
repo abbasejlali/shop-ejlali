@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { revalidatePath } from "next/cache";
 import { Authorization, GetNewAccessToken } from "../functions";
+import { TokenAuth } from "../typescript/interface/interface";
 
 async function validationUserClient() {
   const cookie = cookies();

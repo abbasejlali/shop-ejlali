@@ -1,3 +1,5 @@
+import HomePage from "./components/template/HomePage";
+
 export default function Home() {
-  return <h2>abbas ejlali</h2>;
+  return <HomePage />;
 }

@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 async function validationUser() {
-  const baseurl = process.env.NEXT_PUBLIC_BASE_URI;
+  const baseurl: string | undefined = process.env.NEXT_PUBLIC_BASE_URI;
   const cookie = cookies();
 
   const accessToken: RequestCookie | undefined | null =

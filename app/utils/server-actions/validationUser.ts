@@ -7,7 +7,8 @@ async function validationUser() {
   const baseurl = process.env.NEXT_PUBLIC_BASE_URI;
   const cookie = cookies();
 
-  const accessToken: RequestCookie | undefined = cookie.get("accessToken");
+  const accessToken: RequestCookie | undefined | null =
+    cookie.get("accessToken");
 
   const data = await fetch(`${baseurl}/auth/me`, {
     method: "GET",

@@ -1,19 +1,24 @@
 "use client";
-import validationUser from "@/app/utils/server-actions/validationUser";
-import Link from "next/link";
+
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
+// typescript
+import { User } from "@/app/utils/typescript/interface/interface";
+
+// server action
+import validationUser from "@/app/utils/server-actions/validationUser";
 
 function BtnDashboard() {
-  const [views, setViews]: any = useState({});
-  const [isLoading, setIsLoading]: any = useState(true);
+  const [views, setViews] = useState<User | undefined>(undefined);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const updateViews = async () => {
-      const updatedViews: any = await validationUser();
+      const updatedViews = await validationUser();
       setViews(updatedViews);
     };
     setIsLoading(false);
-
     updateViews();
   }, []);
 

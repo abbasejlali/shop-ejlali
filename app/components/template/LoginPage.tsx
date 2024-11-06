@@ -5,13 +5,13 @@ import auth from "@/app/utils/server-actions/auth";
 import { useRef } from "react";
 
 function LoginPage() {
-  const ref: any = useRef(null);
+  const ref = useRef<null | HTMLFormElement>(null);
   return (
     <form
       ref={ref}
       action={async (formdata: FormData) => {
         await auth(formdata);
-        ref.current.reset();
+        ref?.current?.reset();
       }}
     >
       <div className=" max-w-2xl w-full mx-auto ">

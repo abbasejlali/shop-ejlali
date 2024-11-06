@@ -1,3 +1,5 @@
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+
 interface User {
   id: number;
   firstName: string;
@@ -64,4 +66,9 @@ interface Hair {
   type: string;
 }
 
-export { type User };
+interface TokenAuth {
+  accessToken: RequestCookie | undefined | null;
+  refreshToken: RequestCookie | undefined | null;
+}
+
+export { type User, type TokenAuth };

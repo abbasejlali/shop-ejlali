@@ -7,7 +7,7 @@ import Link from "next/link";
 import { User } from "@/app/utils/typescript/interface/interface";
 
 // server action
-import validationUser from "@/app/utils/server-actions/validationUser";
+import validationUserClient from "@/app/utils/server-actions/validationUserClient";
 
 function BtnDashboard() {
   const [views, setViews] = useState<User | undefined>(undefined);
@@ -15,7 +15,7 @@ function BtnDashboard() {
 
   useEffect(() => {
     const updateViews = async () => {
-      const updatedViews = await validationUser();
+      const updatedViews = await validationUserClient();
       setViews(updatedViews);
     };
     setIsLoading(false);
@@ -25,6 +25,7 @@ function BtnDashboard() {
   useEffect(() => {
     console.log(views);
   }, [views]);
+
   return (
     <>
       <Link

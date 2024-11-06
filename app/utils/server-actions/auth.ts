@@ -23,11 +23,11 @@ async function auth(formData: FormData) {
       if (data?.accessToken) {
         cookies().set("accessToken", data.accessToken, {
           httpOnly: true,
-          maxAge: 30 * 60 * 1000, // 30 minutes
+          maxAge: 60 * 60 * 1000, // 60 minutes
         });
         cookies().set("refreshToken", data.refreshToken, {
           httpOnly: true,
-          maxAge: 60 * 60 * 1000, // 60 minutes
+          maxAge: 48 * 60 * 60 * 1000, // 48 h
         });
         revalidatePath("auth");
       } else {
